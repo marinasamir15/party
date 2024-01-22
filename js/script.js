@@ -91,8 +91,10 @@ let textAreaLimit=document.getElementById("textArea");
 textAreaLimit.addEventListener("keydown",function(e){
 if(maxcount==0 && e.key!="Backspace"){
   e.preventDefault();
-  $("#span-warning").text(" can not add more characters")
+  $("#span-count").hide(1)
+  $("#span-warning").text("Your available Characters are finished")
   $("#span-warning").css("color","red");
+  
   return;
 }
 if(maxcount==100 && e.key=="Backspace"){
@@ -101,12 +103,16 @@ if(maxcount==100 && e.key=="Backspace"){
 }
 if(e.key =="Backspace"){
 maxcount=maxcount+1;
+
 $("#span-count").text(`${maxcount}`);
+$("#span-count").show(1)
 $("#span-warning").text(" Character Reamining")
 $("#span-warning").css("color","black");
 }else{
   maxcount=maxcount-1;
+  
   $("#span-count").text(`${maxcount}`);
+  $("#span-count").show(1)
   $("#span-warning").text(" Character Reamining")
   $("#span-warning").css("color","black");
 }
